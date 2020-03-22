@@ -11,20 +11,26 @@ const matrix = [
 ];
 
 const rotateMatrix = (m) => {
-  let row = 0;
-  
-  while (row < m.length/2) {
-    let col = 0;
-    while (col < m[0].length/2) {
-      const temp = m[row][col];
-      console.log(temp);
-      m[row][col] = m[col][row];
-      m[col][row] = temp;
-      col++;
+  let min = 0;
+  let max = m.length-1;
+  while (min < max && max > m.length/2) {
+    let dif = 0;
+    while (dif+min < max) {
+      const temp1 = m[min][min+dif];
+      const temp2 = m[min+dif][max];
+      const temp3 = m[max][max-dif];
+      const temp4 = m[max-dif][min];
+
+      m[min][min+dif] = temp2;
+      m[min+dif][max] = temp3;
+      m[max][max-dif] = temp4;
+      m[max-dif][min] = temp1;
+      
+      dif++;
     }
-    row++;
+    min++;
+    max--;
   }
   return m;
 };
-console.log(matrix);
 console.log(rotateMatrix(matrix));

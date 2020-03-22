@@ -2,18 +2,17 @@
 // each pixel in the image is 4 bytes, write a method
 // to rotate the image by 90 degrees. Can you do this in place?
 
-const matrix = [
-  [1,  2,  3,  4,   5],
-  [6,  7,  8,  9,  10],
-  [11, 12, 13, 14, 15],
-  [16, 17, 18, 19, 20],
-  [21, 22, 23, 24, 25]
-];
+const m = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12], 
+  [13, 14, 15, 16]
+]
 
 const rotateMatrix = (m) => {
   let min = 0;
   let max = m.length-1;
-  while (min < max && max > m.length/2) {
+  while (min < max && max >= m.length/2) {
     let dif = 0;
     while (dif+min < max) {
       const temp1 = m[min][min+dif];
@@ -33,4 +32,4 @@ const rotateMatrix = (m) => {
   }
   return m;
 };
-console.log(rotateMatrix(matrix));
+console.log(rotateMatrix(m));

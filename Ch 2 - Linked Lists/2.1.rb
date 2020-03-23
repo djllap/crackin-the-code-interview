@@ -41,7 +41,3 @@ def remove_without_buffer (list)
     node = node.next
   end
 end
-
-l.print
-remove_without_buffer(l)
-l.print

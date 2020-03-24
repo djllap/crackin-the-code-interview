@@ -10,8 +10,20 @@ end
 class Linked_List
   attr_accessor :head
 
-  def insert(val)
+  def insertAtHead(val)
     @head = Node.new(val, @head)
+  end
+
+  def insertAtTail(val)
+    unless @head
+      return insertAtHead(val)
+    end
+
+    node = @head
+    while node.next
+      node = node.next
+    end
+    node.next = Node.new(val, nil)
   end
 
   def print

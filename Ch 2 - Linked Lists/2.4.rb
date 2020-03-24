@@ -7,7 +7,6 @@ def partitionList list, x
   node = prev.next
 
   while node
-    p "#{prev.val}, #{node.val}"
     if (node.val < x)
       prev.next = node.next
       node.next = list.head
